@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+
+    <title>The HTML5 Herald</title>
+    <meta name="description" content="The HTML5 Herald" />
+    <meta name="author" content="SitePoint" />
+
+    <link rel="stylesheet" href="./index.css?v=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./script.js"></script>
+    <script>
+      $(document).ready(function () {
+        console.log("ready");
+        getChat();
+        setInterval(function () {
+          getChat();
+        }, 3000);
+      });
+    </script>
+  </head>
+
+  <body>
+    <div class="container mt-5">
+      <div class="row border m-auto" style="height: 80vh">
+        <div class="col border-right p-3" style="max-width: 20%">
+          <input
+            type="radio"
+            id="IP1"
+            name="IPaddress"
+            value="IP1"
+            onclick="onclickIP()"
+          />
+          <label for="IP1">IP1</label><br />
+          <input
+            type="radio"
+            id="IP2"
+            name="IPaddress"
+            value="IP2"
+            onclick="onclickIP()"
+          />
+          <label for="IP2">IP2</label><br />
+          <input
+            type="radio"
+            id="IP3"
+            name="IPaddress"
+            value="IP3"
+            onclick="onclickIP()"
+          />
+          <label for="IP3">IP3</label>
+        </div>
+        <div class="col p-3">
+          <div class="border" id="chatbox" style="height: 90%"></div>
+          <div style="float: right">
+            <input type="text" id="text-input" /><button
+              onclick="onclickSend()"
+            >
+              send
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
