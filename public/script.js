@@ -11,7 +11,7 @@ const onclickSend = () => {
   let sender = myIP;
   let receiver = selectedIP;
   $.ajax({
-    url: `http://${myIP}:3000/chat`,
+    url: `http://localhost:3000/chat`,
     method: "POST",
     contentType: "application/json",
     data: JSON.stringify({ text, sender, receiver }),
