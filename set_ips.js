@@ -1,5 +1,5 @@
 const fs = require("fs");
-const ipsPath = "./auto-ips.json";
+const ipsPath = "./public/auto-ips.json";
 const ips = require(ipsPath);
 
 const [wlan_ip, bat_ip] = process.argv.slice(2);
