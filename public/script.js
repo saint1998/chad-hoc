@@ -1,4 +1,10 @@
-const myIP = "localhost";
+let ips = { wlan_ip: "localhost", bat_ip: "localhost" };
+let myIP = ips.bat_ip;
+$.getJSON("auto-ips.json", function (data) {
+  ips = data;
+  myIP = ips.bat_ip;
+  console.log("bat0 ip is:", myIP);
+});
 let selectedIP = "localhost";
 
 const onclickIP = () => {
