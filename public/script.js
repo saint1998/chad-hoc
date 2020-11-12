@@ -1,4 +1,7 @@
-const myIP = "localhost";
+const ips = require("../auto-ips.json");
+
+const myIP = ips.bat_ip;
+console.log("bat0 ip is:", myIP);
 let selectedIP = "localhost";
 
 const onclickIP = () => {

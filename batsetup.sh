@@ -1,3 +1,6 @@
+wlan_ip="172.27.0.6/16"
+bat_ip="172.27.0.8/16"
+
 # Activate batman-adv
 sudo modprobe batman-adv
 # Disable and configure wlan0
@@ -9,7 +12,7 @@ sudo iwconfig wlan0 ap any
 sudo iwconfig wlan0 channel 8
 sleep 1s
 sudo ip link set wlan0 up
-sudo ifconfig wlan0 172.27.0.6/16
+sudo ifconfig wlan0 $wlan_ip
 sleep 1s
 sudo batctl if add wlan0
 sleep 1s
@@ -19,4 +22,6 @@ sleep 5s
 # This is the only change necessary to the script for
 # different devices. Make sure to indicate the number
 # of bits used for the mask.
-sudo ifconfig bat0 172.27.0.8/16
+sudo ifconfig bat0 $bat_ip
+
+node set_ips.js $wlan_ip $bat_ip
