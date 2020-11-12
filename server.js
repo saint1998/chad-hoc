@@ -3,6 +3,7 @@ const cors = require("cors");
 const app = express();
 app.use(cors());
 const chatHistory = {};
+const myIP = "<my IP>";
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -16,13 +17,22 @@ app.get("/chat", (req, res) => {
 
 app.post("/chat", (req, res) => {
   let data = req.body;
-  if (data.receiver in chatHistory) {
-    chatHistory[data.receiver].push(data);
+  if (data.sender == myIP) {
+    if (data.receiver in chatHistory) {
+      chatHistory[data.receiver].push(data);
+    } else {
+      chatHistory[data.receiver] = [];
+      chatHistory[data.receiver].push(data);
+    }
+    console.log(chatHistory);
   } else {
-    chatHistory[data.receiver] = [];
-    chatHistory[data.receiver].push(data);
+    if (data.sender in chatHistory) {
+      chatHistory[data.sender].push(data);
+    } else {
+      chatHistory[data.sender] = [];
+      chatHistory[data.sender].push(data);
+    }
   }
-  console.log(chatHistory);
 });
 
 app.use("/", express.static(__dirname + "/public"));
