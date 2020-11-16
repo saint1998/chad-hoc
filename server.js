@@ -75,7 +75,7 @@ app.post("/chat/file", (req, res) => {
 
   busboy.on("finish", function () {
     res.writeHead(200, { Connection: "close" });
-    res.end("That's all folks!");
+    res.end("send file success!");
   });
 
   return req.pipe(busboy);

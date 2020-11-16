@@ -80,17 +80,17 @@ const sendText = (text, sender, receiver) => {
       console.log(result);
     },
   });
-  // $.ajax({
-  //   url: `http://${selectedIP}:3000/chat/text`,
-  //   method: "POST",
-  //   cache: false,
+  $.ajax({
+    url: `http://${selectedIP}:3000/chat/text`,
+    method: "POST",
+    cache: false,
 
-  //   contentType: "application/json",
-  //   data: JSON.stringify({ text, sender, receiver }),
-  //   success: function (result) {
-  //     console.log(result);
-  //   },
-  // });
+    contentType: "application/json",
+    data: JSON.stringify({ text, sender, receiver }),
+    success: function (result) {
+      console.log(result);
+    },
+  });
   $("#text-input").val("");
 };
 
@@ -112,17 +112,16 @@ const sendFile = (file, sender, receiver) => {
       console.log(result);
     },
   });
-  // $.ajax({
-  //   url: `http://${selectedIP}:3000/chat/file`,
-  //   method: "POST",
-  //   dataType: "script",
-  //   cache: false,
-  //   contentType: false,
-  //   processData: false,
-  //   data: JSON.stringify({ fileData, sender, receiver }),
-  //   success: function (result) {
-  //     console.log(result);
-  //   },
-  // });
+  $.ajax({
+    url: `http://${selectedIP}:3000/chat/file`,
+    method: "POST",
+    cache: false,
+    contentType: false,
+    processData: false,
+    data: formData,
+    success: function (result) {
+      console.log(result);
+    },
+  });
   $("#file-input").val("");
 };
