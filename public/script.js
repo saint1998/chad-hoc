@@ -86,7 +86,7 @@ const sendText = (text, sender, receiver) => {
     cache: false,
 
     contentType: "application/json",
-    data: JSON.stringify({ text, sender, receiver }),
+    data: JSON.stringify({ text, sender, receiver, type: "text" }),
     success: function (result) {
       console.log(result);
     },
