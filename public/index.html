@@ -92,13 +92,17 @@
           <label for="172.27.0.9">172.27.0.9</label><br />
         </div>
         <div class="col p-3">
-          <div class="border" id="chatbox" style="height: 90%"></div>
+          <div
+            class="border"
+            id="chatbox"
+            style="height: 90%; overflow-y: scroll"
+          ></div>
+          <div style="float: left">
+            <input type="file" id="file-input" />
+          </div>
           <div style="float: right">
-            <input type="text" id="text-input" /><button
-              onclick="onclickSend()"
-            >
-              send
-            </button>
+            <input type="text" id="text-input" />
+            <button onclick="onclickSend()">send</button>
           </div>
         </div>
       </div>
